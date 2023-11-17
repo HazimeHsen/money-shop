@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import { arimo } from "@/app/font";
 
 const ContactUs = () => {
   const [name, setName] = useState("");
@@ -31,7 +32,8 @@ const ContactUs = () => {
       <section className="relative z-0">
         <div className="container px-6 md:px-12 relative z-0">
           <div className="block rounded-lg bg-[#4d875493] px-6 py-12 shadow-lg md:py-16 md:px-12 ">
-            <div className="mb-12 text-3xl font-extrabold text-white text-center">
+            <div
+              className={`mb-12 text-3xl font-extrabold text-white text-center ${arimo.className}`}>
               Contact Us
             </div>
             <div className="mx-auto max-w-[700px]">
@@ -39,7 +41,7 @@ const ContactUs = () => {
                 <div className="relative mb-6" data-te-input-wrapper-init>
                   <input
                     type="text"
-                    className="focus:ring-2 ring-primary  bg-gray-200 peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary "
+                    className={`${arimo.className} focus:ring-2 ring-primary  bg-gray-200 peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary  `}
                     id="exampleInput90"
                     placeholder="Name"
                   />
@@ -47,14 +49,14 @@ const ContactUs = () => {
                 <div className="relative mb-6" data-te-input-wrapper-init>
                   <input
                     type="email"
-                    className="focus:ring-2 ring-primary bg-gray-200 peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary "
+                    className={`${arimo.className} focus:ring-2 ring-primary bg-gray-200 peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary `}
                     id="exampleInput91"
                     placeholder="Email address"
                   />
                 </div>
                 <div className="relative mb-6" data-te-input-wrapper-init>
                   <textarea
-                    className="focus:ring-2 ring-primary  bg-gray-200 peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100"
+                    className={`${arimo.className} focus:ring-2 ring-primary  bg-gray-200 peer block min-h-[auto] w-full rounded border-0 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100`}
                     id="exampleFormControlTextarea1"
                     rows={3}
                     placeholder="Your message"></textarea>

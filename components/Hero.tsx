@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { arimo, bebas } from "../app/font";
 
 type Props = {};
 
@@ -10,11 +11,13 @@ function Hero({}: Props) {
       <div className="h-[95vh] md:pt-0 flex justify-center items-center ">
         <div className="flex md:flex-row md:gap-0 gap-5 flex-col w-full items-center justify-evenly px-4 ">
           <div className="w-full font-semibold md:w-1/2 md:text-start text-center space-y-5">
-            <h1 className="max-w-md mx-auto md:mx-0 md:max-w-lg text-3xl font-extrabold font-sans md:text-5xl">
+            <h1
+              className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-3xl font-extrabold md:text-5xl ${arimo.className}`}>
               The Best Place To Find And Buy Amazing{" "}
               <span className="text-primary">Products</span>
             </h1>
-            <h3 className="max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold text-gray-400">
+            <h3
+              className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold text-gray-400 ${arimo.className}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
               nisi, at sed integer nec, velit vulptate est at.
             </h3>

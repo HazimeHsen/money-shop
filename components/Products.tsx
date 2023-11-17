@@ -124,7 +124,7 @@ function Products() {
                 categories.find((cat) => cat._id === e.target.value) || null
               )
             }
-            className="  bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
+            className="w-full bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
             <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
               Select Category
             </option>
@@ -151,7 +151,7 @@ function Products() {
                   null
               )
             }
-            className="  bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
+            className="w-full bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
             <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
               Select Country
             </option>
