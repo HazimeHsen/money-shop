@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { Products } from "@/types/Products";
-import { PortableText } from "@portabletext/react";
 
 type Props = {
   product: Products;

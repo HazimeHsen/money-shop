@@ -52,6 +52,36 @@ export async function getProducts(): Promise<Products[]> {
         }`
   );
 }
+
+export async function getProduct(id: string): Promise<Products> {
+  const client = createClient({
+    projectId: "ltl22r4j",
+    dataset: "production",
+    apiVersion: "2023-11-06",
+  });
+  return client.fetch(
+    groq`*[_type == "product" && _id == $id]{
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current,
+        "image": image.asset->url,
+        price,
+        "category": {
+          "_id": category._ref,
+          "name": category->name,
+          "slug": category->slug.current
+        },
+        "country": {
+          "_id": country._ref,
+          "name": country->name,
+          "slug": country->slug.current
+        },
+        content
+    }`,
+    { id }
+  );
+}
 export async function getCategories(): Promise<Categories[]> {
   const client = createClient({
     projectId: "ltl22r4j",

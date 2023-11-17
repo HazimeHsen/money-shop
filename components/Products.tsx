@@ -15,6 +15,7 @@ import Modal from "./Modal";
 import Slider from "./ImageSlider";
 import { PortableText } from "@portabletext/react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import Link from "next/link";
 
 function Products() {
   const [categories, setCategories] = useState<Categories[]>([]);
@@ -196,48 +197,18 @@ function Products() {
       <div className="flex justify-center">
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
           {products.map((product) => (
-            <div
+            <Link
+              href={`/product/${product._id}`}
               className="h-full"
               key={product._id}
               onClick={() => handleCardClick(product)}>
               <ProductCard product={product} />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
 
       {/* Modal component */}
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          {selectedProduct && (
-            <>
-              <Slider
-                images={[
-                  selectedProduct.image,
-                  selectedProduct.image,
-                  selectedProduct.image,
-                  selectedProduct.image,
-                ]}
-              />
-
-              <div className="flex flex-col space-y-1">
-                <div className="flex items-center justify-between">
-                  <h1 className="font-semibold">{selectedProduct.name}</h1>
-                  <div className="text-primary font-bold rounded">
-                    ${selectedProduct.price}
-                  </div>
-                </div>
-                <div className="text-sm text-gray-600 mb-2">
-                  {selectedProduct.country.name}
-                </div>
-                <div className="text-sm text-gray-600">
-                  <PortableText value={selectedProduct.content} />
-                </div>
-              </div>
-            </>
-          )}
-        </Modal>
-      )}
     </div>
   );
 }
