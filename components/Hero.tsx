@@ -7,8 +7,8 @@ type Props = {};
 function Hero({}: Props) {
   return (
     <>
-      <div className="h-screen md:pt-0 pt-16 flex justify-center items-center ">
-        <div className="flex md:flex-row md:gap-0 gap-5 flex-col w-full items-center justify-evenly px-4 mt-14">
+      <div className="h-[95vh] md:pt-0 flex justify-center items-center ">
+        <div className="flex md:flex-row md:gap-0 gap-5 flex-col w-full items-center justify-evenly px-4 ">
           <div className="w-full font-semibold md:w-1/2 md:text-start text-center space-y-5">
             <h1 className="max-w-md mx-auto md:mx-0 md:max-w-lg text-3xl font-extrabold font-sans md:text-5xl">
               The Best Place To Find And Buy Amazing{" "}

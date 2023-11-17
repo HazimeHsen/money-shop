@@ -89,7 +89,7 @@ function Products() {
   };
 
   return (
-    <div className="container w-screen min-h-screen mb-10 px-4 py-10 mx-auto ">
+    <div className="container w-screen min-h-screen px-4 py-5 mx-auto ">
       <div className="space-y-4 text-center">
         <h1 className="text-3xl font-extrabold lg:text-5xl">
           <span className="text-primary">Exclusive</span> Products

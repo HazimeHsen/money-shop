@@ -8,9 +8,9 @@ export default function Home() {
       <Header />
       <div className="">
         <Hero />
-        <HeroScrollPreview />
+        {/* <HeroScrollPreview /> */}
         <Products />
-        {/* <ContactUs /> */}
+        <ContactUs />
       </div>
     </div>
   );

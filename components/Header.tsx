@@ -29,10 +29,7 @@ function Header({}: Props) {
 
   return (
     <>
-      <div
-        className={`fixed w-screen bg-white ${
-          isScrolled ? "py-4 opacity-90" : "py-6"
-        } shadow transition-all md:px-10 px-4 z-20`}>
+      <div className={`w-screen pt-5 transition-all md:px-10 px-4 z-20`}>
         <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
           <div className="cursor-pointer">
