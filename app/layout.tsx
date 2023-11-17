@@ -1,7 +1,9 @@
 import "./globals.css";
 import { Header, Footer } from "@/components";
 import SideBar from "@/components/SideBar";
+import { CartProvider } from "@/context/CartContext";
 import { Quicksand } from "next/font/google";
+import { StoreProvider } from "./CartProvider";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -18,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={quicksand.className}>
-        <div>{children}</div>
+        <div>
+          <StoreProvider>{children}</StoreProvider>
+        </div>
       </body>
     </html>
   );

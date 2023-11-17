@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Logo, SearchIcon, UserIcon, CartIcon, HamburgerIcon } from "@/icons";
 import SideBar from "./SideBar";
+import { CartContext, CartContextType } from "@/context/CartContext";
 
 type Props = {};
 
@@ -26,10 +27,13 @@ function Header({}: Props) {
     { name: "About", href: "/#about" },
     { name: "Contact", href: "/#contact" },
   ];
+  const cartContext = useContext<CartContextType | undefined>(CartContext);
+
+  const { cartItems } = cartContext || {};
 
   return (
     <>
-      <div className={`w-screen pt-5 transition-all md:px-10 px-4 z-20`}>
+      <div className={`pt-5 transition-all md:px-10 px-4 z-20`}>
         <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
           <div className="cursor-pointer">
@@ -48,16 +52,30 @@ function Header({}: Props) {
             ))}
           </div>
 
-          {/* HAMBURGER */}
-          <div
-            onClick={() => setIsOpen(true)}
-            className="cursor-pointer md:hidden">
-            <Image
-              src={HamburgerIcon}
-              width={30}
-              height={30}
-              alt="Hamburguer-Icon"
-            />
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <Link href="/cart">
+                <Image src={CartIcon} width={30} height={30} alt="cart" />
+              </Link>
+              <span>
+                {cartItems && cartItems?.length > 0 && (
+                  <span className="text-white bg-red-600 rounded-full w-4 h-4 absolute top-0 -right-2 flex items-center justify-center p-1 text-xs">
+                    {cartItems?.length}
+                  </span>
+                )}
+              </span>
+            </div>
+
+            <div
+              onClick={() => setIsOpen(true)}
+              className="cursor-pointer md:hidden">
+              <Image
+                src={HamburgerIcon}
+                width={30}
+                height={30}
+                alt="Hamburguer-Icon"
+              />
+            </div>
           </div>
         </div>
       </div>

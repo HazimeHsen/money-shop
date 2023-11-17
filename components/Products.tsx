@@ -89,7 +89,7 @@ function Products() {
   };
 
   return (
-    <div className="container w-screen min-h-screen px-4 py-5 mx-auto ">
+    <div className="container min-h-screen px-4 py-5 mx-auto ">
       <div className="space-y-4 text-center">
         <h1 className="text-3xl font-extrabold lg:text-5xl">
           <span className="text-primary">Exclusive</span> Products
@@ -115,8 +115,8 @@ function Products() {
           Explore Now
         </button>
       </div>
-      <div className="flex flex-col gap-4 md:flex-row items-center mb-5 justify-center ">
-        <div className="relative">
+      <div className="flex flex-row flex-wrap gap-2 md:flex-row items-center mb-5 justify-center ">
+        <div className="relative pr-4 md:w-[200px] w-[150px] bg-gray-200 rounded-md">
           <select
             value={selectedCategory?._id || ""}
             onChange={(e) =>
@@ -124,7 +124,7 @@ function Products() {
                 categories.find((cat) => cat._id === e.target.value) || null
               )
             }
-            className=" w-[180px] bg-gray-200 outline-none px-4 py-2 border appearance-none rounded">
+            className="  bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
             <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
               Select Category
             </option>
@@ -142,7 +142,7 @@ function Products() {
             <FaChevronDown size={12} className="text-gray-600" />
           </div>
         </div>
-        <div className="relative">
+        <div className="relative pr-4 md:w-[200px] w-[150px] bg-gray-200 rounded-md">
           <select
             value={selectedCountry?._id || ""}
             onChange={(e) =>
@@ -151,7 +151,7 @@ function Products() {
                   null
               )
             }
-            className=" w-[180px] bg-gray-200 outline-none px-4 py-2 border appearance-none rounded">
+            className="  bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
             <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
               Select Country
             </option>
@@ -169,28 +169,26 @@ function Products() {
             <FaChevronDown size={12} className="text-gray-600" />
           </div>
         </div>
-        <div className="flex">
-          <div className="relative inline-flex">
-            <select
-              onChange={(e) => setSelectedFilter(e.target.value)}
-              className="w-[180px] bg-gray-200 outline-none px-4 py-2 border rounded appearance-none">
-              <option value="" className="font-sans">
-                Filters
-              </option>
-              <option value="priceup" className="font-sans">
-                Price ↑
-              </option>
-              <option value="pricedown" className="font-sans">
-                Price ↓
-              </option>
-              <option value="az" className="font-sans">
-                A-Z
-              </option>
-            </select>
-            <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
-              <FaChevronUp size={12} className="text-gray-600" />
-              <FaChevronDown size={12} className="text-gray-600" />
-            </div>
+        <div className="relative pr-4 md:w-[200px]  bg-gray-200 rounded-md ">
+          <select
+            onChange={(e) => setSelectedFilter(e.target.value)}
+            className=" bg-gray-200 w-full text-sm md:text-base outline-none md:px-4 px-2 py-2 border rounded appearance-none">
+            <option value="" className="font-sans">
+              Filters
+            </option>
+            <option value="priceup" className="font-sans">
+              Price ↑
+            </option>
+            <option value="pricedown" className="font-sans">
+              Price ↓
+            </option>
+            <option value="az" className="font-sans">
+              A-Z
+            </option>
+          </select>
+          <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
+            <FaChevronUp size={12} className="text-gray-600" />
+            <FaChevronDown size={12} className="text-gray-600" />
           </div>
         </div>
       </div>
