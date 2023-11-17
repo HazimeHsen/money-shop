@@ -14,6 +14,7 @@ import { Countries } from "@/types/Countries";
 import Modal from "./Modal";
 import Slider from "./ImageSlider";
 import { PortableText } from "@portabletext/react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 function Products() {
   const [categories, setCategories] = useState<Categories[]>([]);
@@ -114,65 +115,82 @@ function Products() {
         </button>
       </div>
       <div className="flex flex-col gap-4 md:flex-row items-center mb-5 justify-center ">
-        <select
-          value={selectedCategory?._id || ""}
-          onChange={(e) =>
-            setSelectedCategory(
-              categories.find((cat) => cat._id === e.target.value) || null
-            )
-          }
-          className="categorySelect w-[180px] ring-2 ring-primary outline-none px-4 py-2 border  rounded">
-          <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
-            Select Category
-          </option>
-          {categories.map((category) => (
-            <option
-              className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4"
-              key={category._id}
-              value={category._id}>
-              {category.name}
-            </option>
-          ))}
-        </select>
-        <select
-          value={selectedCountry?._id || ""}
-          onChange={(e) =>
-            setSelectedCountry(
-              countries.find((country) => country._id === e.target.value) ||
-                null
-            )
-          }
-          className="categorySelect w-[180px] ring-2 ring-primary outline-none px-4 py-2 border  rounded">
-          <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
-            Select Country
-          </option>
-          {countries.map((country) => (
-            <option
-              className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4"
-              key={country._id}
-              value={country._id}>
-              {country.name}
-            </option>
-          ))}
-        </select>
-
-        <div className="flex">
+        <div className="relative">
           <select
-            onChange={(e) => setSelectedFilter(e.target.value)}
-            className="categorySelect w-[180px] ring-2 ring-primary outline-none px-4 py-2 border  rounded">
-            <option value="" className="font-sans">
-              Filters
+            value={selectedCategory?._id || ""}
+            onChange={(e) =>
+              setSelectedCategory(
+                categories.find((cat) => cat._id === e.target.value) || null
+              )
+            }
+            className=" w-[180px] bg-gray-200 outline-none px-4 py-2 border appearance-none rounded">
+            <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
+              Select Category
             </option>
-            <option value="priceup" className="font-sans">
-              Price ↑
-            </option>
-            <option value="pricedown" className="font-sans">
-              Price ↓
-            </option>
-            <option value="az" className="font-sans">
-              A-Z
-            </option>
+            {categories.map((category) => (
+              <option
+                className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4"
+                key={category._id}
+                value={category._id}>
+                {category.name}
+              </option>
+            ))}
           </select>
+          <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
+            <FaChevronUp size={12} className="text-gray-600" />
+            <FaChevronDown size={12} className="text-gray-600" />
+          </div>
+        </div>
+        <div className="relative">
+          <select
+            value={selectedCountry?._id || ""}
+            onChange={(e) =>
+              setSelectedCountry(
+                countries.find((country) => country._id === e.target.value) ||
+                  null
+              )
+            }
+            className=" w-[180px] bg-gray-200 outline-none px-4 py-2 border appearance-none rounded">
+            <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
+              Select Country
+            </option>
+            {countries.map((country) => (
+              <option
+                className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4"
+                key={country._id}
+                value={country._id}>
+                {country.name}
+              </option>
+            ))}
+          </select>
+          <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
+            <FaChevronUp size={12} className="text-gray-600" />
+            <FaChevronDown size={12} className="text-gray-600" />
+          </div>
+        </div>
+        <div className="flex">
+          <div className="relative inline-flex">
+            <select
+              onChange={(e) => setSelectedFilter(e.target.value)}
+              className="w-[180px] bg-gray-200 outline-none px-4 py-2 border rounded appearance-none">
+              <option value="" className="font-sans">
+                Filters
+              </option>
+              <option value="priceup" className="font-sans">
+                Price ↑
+              </option>
+              <option value="pricedown" className="font-sans">
+                Price ↓
+              </option>
+              <option value="az" className="font-sans">
+                A-Z
+              </option>
+            </select>
+            <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
+              <FaChevronUp size={12} className="text-gray-600" />
+              <FaChevronDown size={12} className="text-gray-600" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex justify-center">

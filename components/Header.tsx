@@ -36,7 +36,7 @@ function Header({}: Props) {
         <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
           <div className="cursor-pointer">
-            <Image src={Logo} width={150} height={35} alt="Logo" />
+            <Image src={Logo} width={80} height={35} alt="Logo" />
           </div>
 
           {/* NAVIGATION */}
@@ -57,8 +57,8 @@ function Header({}: Props) {
             className="cursor-pointer md:hidden">
             <Image
               src={HamburgerIcon}
-              width={45}
-              height={45}
+              width={30}
+              height={30}
               alt="Hamburguer-Icon"
             />
           </div>
