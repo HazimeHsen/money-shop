@@ -49,7 +49,7 @@ const CartPage = () => {
               </Link>
             </div>
           ) : (
-            <div className="flex md:flex-nowrap flex-wrap-reverse gap-4 mt-10">
+            <div className="flex md:flex-nowrap flex-wrap-reverse gap-4 my-10">
               <div className="md:w-3/4 w-full bg-gray-100 rounded-lg p-6 md:p-10">
                 <div className="flex justify-between border-b p-5">
                   <h1 className="font-semibold text-2xl">Shopping Cart</h1>
@@ -105,10 +105,10 @@ const CartPage = () => {
                   <p>No items in the cart.</p>
                 )}
                 <Link
-                  className="flex font-semibold text-indigo-600 text-sm mt-10"
+                  className="flex font-semibold text-primary text-sm mt-10"
                   href="/">
                   <svg
-                    className="fill-current mr-2 text-indigo-600 w-4"
+                    className="fill-current mr-2 text-primary w-4"
                     viewBox="0 0 448 512">
                     {/* Continue Shopping Icon */}
                     <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
@@ -136,7 +136,7 @@ const CartPage = () => {
                     <span>Total cost</span>
                     <span>${totalPrice > 0 ? totalPrice.toString() : 0}</span>
                   </div>
-                  <button className="w-full">CheckOut</button>
+                  <button className="w-full Button">CheckOut</button>
                 </div>
               </div>
             </div>
