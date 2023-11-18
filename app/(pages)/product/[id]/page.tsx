@@ -29,7 +29,7 @@ const Page = ({ params }: { params: Params }) => {
       try {
         const products: Products[] = await getProducts();
         const selectedProduct = products.find((p) => p._id === id);
-
+        console.log(products);
         if (selectedProduct) {
           setProduct(selectedProduct);
         } else {
@@ -55,14 +55,7 @@ const Page = ({ params }: { params: Params }) => {
         {product ? (
           <div className="flex md:flex-row flex-col h-full gap-5">
             <div className="w-full md:w-1/2">
-              <Slider
-                images={[
-                  product.image,
-                  product.image,
-                  product.image,
-                  product.image,
-                ]}
-              />
+              <Slider images={product.image} />
             </div>
 
             <div className="flex flex-col space-y-1 h-full md:w-1/2  py-5 w-full">

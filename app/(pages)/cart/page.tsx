@@ -79,7 +79,7 @@ const CartPage = () => {
                             width={60}
                             height={60}
                             className="rounded-md"
-                            src={item.image}
+                            src={item.image[0].url}
                             alt=""
                           />
                         </div>

@@ -36,7 +36,10 @@ export async function getProducts(): Promise<Products[]> {
             _createdAt,
             name,
             "slug": slug.current,
-            "image": image.asset->url,
+            "image": image[].asset->{
+              _id,
+              url
+            },
             price,
             "category": {
               "_id": category._ref,
@@ -65,7 +68,12 @@ export async function getProduct(id: string): Promise<Products> {
         _createdAt,
         name,
         "slug": slug.current,
-        "image": image.asset->url,
+        "image": image[]{
+                    asset-&gt;{
+                    _id,
+                    url
+                    }
+                  },
         price,
         "category": {
           "_id": category._ref,

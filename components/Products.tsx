@@ -35,6 +35,7 @@ function Products() {
   useEffect(() => {
     const fetchData = async () => {
       const data: Products[] = await getProducts();
+      console.log(data);
       const categories: Categories[] = await getCategories();
       const countries: Countries[] = await getCountry();
       setProducts(data);

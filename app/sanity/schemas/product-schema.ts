@@ -22,15 +22,11 @@ const products = {
     {
       name: "image",
       title: "Image",
-      type: "image",
-      options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt",
-          type: "string",
-        },
-      ],
+      type: "array",
+      of: [{ type: "image" }],
+      options: {
+        layout: "grid",
+      },
     },
     {
       name: "category",
