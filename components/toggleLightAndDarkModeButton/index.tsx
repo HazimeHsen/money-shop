@@ -13,7 +13,7 @@ const ToggleTheme = () => {
   };
 
   return (
-    <div>
+    <div className="relative z-0">
       <input
         type="checkbox"
         id="darkmode-toggle"
