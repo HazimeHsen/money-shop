@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { Products } from "@/types/Products";
 
@@ -7,9 +10,29 @@ type Props = {
 };
 
 function ProductCard({ product }: Props) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Only trigger the animation once
+    threshold: 0.2, // Percentage of the element in view
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
   console.log("productcard", product);
   return (
-    <div className="w-fit max-w-[120px] overflow-hidden card h-full hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+      transition={{ duration: 0.5 }}
+      className="w-fit max-w-[120px] overflow-hidden card h-full hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
       <div>
         <Image
           src={product.image[0].url}
@@ -26,7 +49,7 @@ function ProductCard({ product }: Props) {
         </div>
         <div className="text-xs text-gray-600">{product.country.name}</div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -48,7 +48,7 @@ const SideBar = ({
             <li key={i}>
               <a
                 href={link.href}
-                className="flex items-center p-2 rounded-lg  hover:bg-gray-300 group">
+                className="flex items-center text-lg font-semibold p-2 rounded-lg  hover:bg-gray-300 group">
                 <span className="ms-3">{link.name}</span>
               </a>
             </li>

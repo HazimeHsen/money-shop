@@ -31,7 +31,16 @@ const ContactUs = () => {
     <div id="contact" className="container mx-auto md:px-6 py-5 relative z-0">
       <section className="relative z-0">
         <div className="container px-6 md:px-12 relative z-0">
-          <div className="block rounded-lg contact  px-6 py-12 shadow-lg md:py-16 md:px-12 ">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 50 },
+            }}
+            transition={{ duration: 0.5 }}
+            className="block rounded-lg contact  px-6 py-12 shadow-lg md:py-16 md:px-12 ">
             <div
               className={`mb-12 text-3xl font-extrabold text-white text-center ${arimo.className}`}>
               Contact Us
@@ -71,7 +80,7 @@ const ContactUs = () => {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

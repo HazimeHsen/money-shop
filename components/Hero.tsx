@@ -1,16 +1,34 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import { arimo, bebas } from "../app/font";
-
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 type Props = {};
 
 function Hero({}: Props) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Only trigger the animation once
+    threshold: 0.2, // Percentage of the element in view
+  });
+
+  useEffect(() => {
+    controls.start("visible");
+  }, [controls]);
   return (
     <>
       <div className="h-[95vh] md:pt-0 flex justify-center items-center ">
         <div className="flex md:flex-row md:gap-0 gap-5 flex-col w-full items-center justify-evenly px-4 ">
-          <div className="w-full font-semibold md:w-1/2 md:text-start text-center space-y-5">
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 100 },
+            }}
+            transition={{ duration: 0.5 }}
+            className="w-full font-semibold md:w-1/2 md:text-start text-center space-y-5">
             <h1
               className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-3xl font-extrabold md:text-5xl ${arimo.className}`}>
               The Best Place To Find And Buy Amazing{" "}
@@ -44,8 +62,15 @@ function Hero({}: Props) {
                 </div>
               </div>
             </div>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: -100 },
+            }}
+            transition={{ duration: 0.5 }}>
             <Image
               src="/images/hero.png"
               className="md:w-[300px] md:h-[300px] w-[140px] h-[140px] mx-auto md:mx-0"
@@ -75,7 +100,7 @@ function Hero({}: Props) {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

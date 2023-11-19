@@ -10,6 +10,9 @@ export default function Home() {
         <Hero />
         {/* <HeroScrollPreview /> */}
         <Products />
+        <div className="mx-5">
+          <hr />
+        </div>
         <ContactUs />
       </div>
     </div>

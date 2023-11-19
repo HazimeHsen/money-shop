@@ -7,7 +7,10 @@ import SideBar from "./SideBar";
 import { CartContext, CartContextType } from "@/context/CartContext";
 import ToggleTheme from "./toggleLightAndDarkModeButton";
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
+import Animation from "@/app/Animation";
 
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 type Props = {};
 
 function Header({}: Props) {
@@ -26,33 +29,70 @@ function Header({}: Props) {
   const links = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/#products" },
-    { name: "About", href: "/#about" },
+    // { name: "About", href: "/#about" },
     { name: "Contact", href: "/#contact" },
   ];
   const cartContext = useContext<CartContextType | undefined>(CartContext);
 
   const { cartItems } = cartContext || {};
 
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Only trigger the animation once
+    threshold: 0.2, // Percentage of the element in view
+  });
+
+  useEffect(() => {
+    controls.start("visible");
+  }, [controls]);
+
   return (
     <>
       <div className={`pt-5 md:px-10 px-4 z-20`}>
         <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
-          <div className="cursor-pointer text-3xl font-extrabold">XOCO</div>
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, x: 0 },
+              hidden: { opacity: 0, x: -200 },
+            }}
+            transition={{ duration: 0.5, delay: 1 }}
+            className="cursor-pointer text-3xl font-extrabold">
+            <div>XOCO</div>
+          </motion.div>
 
           {/* NAVIGATION */}
-          <div className="items-center hidden space-x-10 font-semibold md:flex">
-            {links.map((link) => (
+          <div className="items-center text-lg hidden space-x-10 font-semibold md:flex">
+            {links.map((link, i) => (
               <a
                 className="hover:text-primary"
                 href={link.href}
                 key={link.name}>
-                <h1>{link.name}</h1>
+                <motion.div
+                  initial="hidden"
+                  animate={controls}
+                  variants={{
+                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0, y: -100 },
+                  }}
+                  transition={{ duration: 0.5, delay: 0.1 * (i + 1) }}>
+                  {link.name}
+                </motion.div>
               </a>
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, x: 0 },
+              hidden: { opacity: 0, x: 200 },
+            }}
+            transition={{ duration: 0.5, delay: 1 }}
+            className="flex items-center gap-4">
             <div className="relative">
               <Link href="/cart">
                 <FiShoppingCart size={25} />
@@ -73,7 +113,7 @@ function Header({}: Props) {
               className="cursor-pointer md:hidden">
               <FiMenu size={25} />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <SideBar links={links} isOpen={isOpen} setIsOpen={setIsOpen} />
