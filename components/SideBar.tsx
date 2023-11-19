@@ -15,19 +15,19 @@ const SideBar = ({
 }) => {
   return (
     <div
-      className={`md:hidden block fixed top-0 right-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform ${
+      className={`md:hidden block fixed top-0 right-0 z-50 w-64 h-screen p-4 overflow-y-auto transition-transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } bg-gray-100 text-black`}>
+      } contact `}>
       <div className="flex items-center justify-between mt-3">
         <h5
           id="drawer-navigation-label"
-          className="text-base font-semibold text-gray-600 uppercase ">
+          className="text-base font-semibold gray-text uppercase ">
           Menu
         </h5>
         <button
           type="button"
           onClick={() => setIsOpen(false)}
-          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5  inline-flex items-center ">
+          className="gray-text bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5  inline-flex items-center ">
           <svg
             aria-hidden="true"
             className="w-5 h-5"
@@ -48,7 +48,7 @@ const SideBar = ({
             <li key={i}>
               <a
                 href={link.href}
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-300 group">
+                className="flex items-center p-2 rounded-lg  hover:bg-gray-300 group">
                 <span className="ms-3">{link.name}</span>
               </a>
             </li>

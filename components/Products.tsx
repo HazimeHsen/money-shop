@@ -117,7 +117,7 @@ function Products() {
         </button>
       </div>
       <div className="flex flex-row flex-wrap gap-2 md:flex-row items-center mb-5 justify-center ">
-        <div className="relative pr-4 md:w-[200px] w-[150px] bg-gray-200 rounded-md">
+        <div className="relative pr-4 md:w-[200px] Select w-[150px] Select rounded-md">
           <select
             value={selectedCategory?._id || ""}
             onChange={(e) =>
@@ -125,7 +125,7 @@ function Products() {
                 categories.find((cat) => cat._id === e.target.value) || null
               )
             }
-            className="w-full bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
+            className="w-full Select text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
             <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
               Select Category
             </option>
@@ -143,7 +143,7 @@ function Products() {
             <FaChevronDown size={12} className="text-gray-600" />
           </div>
         </div>
-        <div className="relative pr-4 md:w-[200px] w-[150px] bg-gray-200 rounded-md">
+        <div className="relative pr-4 md:w-[200px] Select w-[150px] Select rounded-md">
           <select
             value={selectedCountry?._id || ""}
             onChange={(e) =>
@@ -152,7 +152,7 @@ function Products() {
                   null
               )
             }
-            className="w-full bg-gray-200 text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
+            className="w-full Select text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
             <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
               Select Country
             </option>
@@ -170,10 +170,10 @@ function Products() {
             <FaChevronDown size={12} className="text-gray-600" />
           </div>
         </div>
-        <div className="relative pr-4 md:w-[200px]  bg-gray-200 rounded-md ">
+        <div className="relative pr-4 md:w-[200px] Select  Select rounded-md ">
           <select
             onChange={(e) => setSelectedFilter(e.target.value)}
-            className=" bg-gray-200 w-full text-sm md:text-base outline-none md:px-4 px-2 py-2 border rounded appearance-none">
+            className="Select w-full text-sm md:text-base outline-none md:px-4 px-2 py-2 border rounded appearance-none">
             <option value="" className="font-sans">
               Filters
             </option>

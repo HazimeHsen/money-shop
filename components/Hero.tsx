@@ -17,7 +17,7 @@ function Hero({}: Props) {
               <span className="text-primary">Products</span>
             </h1>
             <h3
-              className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold text-gray-400 ${arimo.className}`}>
+              className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold gray-text ${arimo.className}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
               nisi, at sed integer nec, velit vulptate est at.
             </h3>
@@ -36,7 +36,7 @@ function Hero({}: Props) {
                   </h2>
                 </div>
                 <div className="md:w-3/4 w-full ">
-                  <ul className="font-semibold max-w-sm text-sm text-gray-600 pl-8">
+                  <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Nobis non, delectus deleniti necessitatibus quia ratione
                     veniam eos rem amet odio consequuntur minima.
@@ -67,7 +67,7 @@ function Hero({}: Props) {
                   </h2>
                 </div>
                 <div className="md:w-3/4 w-full ">
-                  <ul className="font-semibold max-w-sm text-sm text-gray-600 pl-8">
+                  <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Nobis non, delectus deleniti necessitatibus quia ratione
                     veniam eos rem amet odio consequuntur minima.

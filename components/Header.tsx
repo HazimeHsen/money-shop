@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Logo, SearchIcon, UserIcon, CartIcon, HamburgerIcon } from "@/icons";
 import SideBar from "./SideBar";
 import { CartContext, CartContextType } from "@/context/CartContext";
+import ToggleTheme from "./toggleLightAndDarkModeButton";
+import { FiMenu, FiShoppingCart } from "react-icons/fi";
 
 type Props = {};
 
@@ -36,9 +38,7 @@ function Header({}: Props) {
       <div className={`pt-5 transition-all md:px-10 px-4 z-20`}>
         <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
-          <div className="cursor-pointer">
-            <Image src={Logo} width={80} height={35} alt="Logo" />
-          </div>
+          <div className="cursor-pointer text-3xl font-extrabold">XOCO</div>
 
           {/* NAVIGATION */}
           <div className="items-center hidden space-x-10 font-semibold md:flex">
@@ -55,7 +55,7 @@ function Header({}: Props) {
           <div className="flex items-center gap-4">
             <div className="relative">
               <Link href="/cart">
-                <Image src={CartIcon} width={30} height={30} alt="cart" />
+                <FiShoppingCart size={25} />
               </Link>
               <span>
                 {cartItems && cartItems?.length > 0 && (
@@ -66,15 +66,12 @@ function Header({}: Props) {
               </span>
             </div>
 
+            <ToggleTheme />
+
             <div
               onClick={() => setIsOpen(true)}
               className="cursor-pointer md:hidden">
-              <Image
-                src={HamburgerIcon}
-                width={30}
-                height={30}
-                alt="Hamburguer-Icon"
-              />
+              <FiMenu size={25} />
             </div>
           </div>
         </div>

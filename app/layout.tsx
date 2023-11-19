@@ -4,6 +4,7 @@ import SideBar from "@/components/SideBar";
 import { CartProvider } from "@/context/CartContext";
 import { Quicksand } from "next/font/google";
 import { StoreProvider } from "./CartProvider";
+import DarkLightThemeProvider from "./ThemeProvider";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>
-        <div>
-          <StoreProvider>{children}</StoreProvider>
-        </div>
-      </body>
+      <DarkLightThemeProvider>
+        <body className={quicksand.className}>
+          <div>
+            <StoreProvider>{children}</StoreProvider>
+          </div>
+        </body>
+      </DarkLightThemeProvider>
     </html>
   );
 }

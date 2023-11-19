@@ -9,7 +9,7 @@ type Props = {
 function ProductCard({ product }: Props) {
   console.log("productcard", product);
   return (
-    <div className="w-fit h-full hover:scale-105 cursor-pointer transition-all duration-200 bg-gray-100 ring-1 ring-gray-300 rounded-lg">
+    <div className="w-fit card h-full hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
       <div>
         <Image
           src={product.image[0].url}

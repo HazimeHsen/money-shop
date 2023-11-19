@@ -68,7 +68,7 @@ const Page = ({ params }: { params: Params }) => {
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600">
+              <div className="text-sm gray-text">
                 <PortableText value={product.content || []} />
               </div>
               <div className="flex gap-3 mt-5">
@@ -77,7 +77,7 @@ const Page = ({ params }: { params: Params }) => {
                 </button>
                 <button
                   onClick={handleAddToCart}
-                  className="px-4 py-2 bg-white ring-2 text-primary ring-primary rounded-full w-1/2 hover:bg-primary/30">
+                  className="px-4 py-2 bg-transparent ring-2 text-primary ring-primary rounded-full w-1/2 hover:bg-primary/30">
                   Add to Cart
                 </button>
               </div>
