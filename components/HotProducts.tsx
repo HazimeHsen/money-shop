@@ -115,7 +115,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -143,7 +143,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -171,7 +171,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -199,7 +199,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -227,7 +227,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -255,7 +255,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -283,7 +283,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -311,7 +311,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -339,7 +339,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -367,7 +367,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -395,7 +395,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -423,7 +423,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -451,7 +451,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -479,7 +479,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -507,7 +507,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
@@ -535,7 +535,7 @@ export const Card = ({
                 HOT
               </div>
               <Image
-                src={product.image}
+                src={product.image[0].url}
                 className="rounded-tr-md w-full rounded-tl-md text-sm "
                 alt=""
                 width={200}
