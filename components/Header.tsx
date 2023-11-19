@@ -35,7 +35,7 @@ function Header({}: Props) {
 
   return (
     <>
-      <div className={`pt-5 transition-all md:px-10 px-4 z-20`}>
+      <div className={`pt-5 md:px-10 px-4 z-20`}>
         <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
           <div className="cursor-pointer text-3xl font-extrabold">XOCO</div>
@@ -44,7 +44,7 @@ function Header({}: Props) {
           <div className="items-center hidden space-x-10 font-semibold md:flex">
             {links.map((link) => (
               <a
-                className="hover:text-primary duration-200 transition-all"
+                className="hover:text-primary"
                 href={link.href}
                 key={link.name}>
                 <h1>{link.name}</h1>

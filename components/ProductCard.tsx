@@ -9,14 +9,14 @@ type Props = {
 function ProductCard({ product }: Props) {
   console.log("productcard", product);
   return (
-    <div className="w-fit card h-full hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
+    <div className="w-fit max-w-[150px] card h-full hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
       <div>
         <Image
           src={product.image[0].url}
           alt={product.name}
-          width={250}
-          height={250}
-          className="w-full object-cover"
+          width={150}
+          height={150}
+          className="object-cover w-full max-w-[150px]"
         />
       </div>
       <div className="flex flex-col px-4 pb-2">

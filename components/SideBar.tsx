@@ -17,7 +17,7 @@ const SideBar = ({
     <div
       className={`md:hidden block fixed top-0 right-0 z-50 w-64 h-screen p-4 overflow-y-auto transition-transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } contact `}>
+      } sidebar `}>
       <div className="flex items-center justify-between mt-3">
         <h5
           id="drawer-navigation-label"

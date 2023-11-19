@@ -109,7 +109,7 @@ function Products() {
             type="text"
             placeholder="Search"
             onChange={handleSearch}
-            className="w-56 h-16 pl-4 text-gray-700 placeholder-gray-400 bg-gray-100 border border-transparent outline-none lg:w-96 text-md rounded-e-lg"
+            className="w-56 h-16 pl-4 text-gray-700 placeholder-gray-400 bg-gray-100 border border-transparent outline-none lg:w-96 text-md rounded-r-lg"
           />
         </div>
         <button className="hidden lg:block h-16 px-10 py-4 Button">

@@ -8,11 +8,17 @@
   [data-theme="light"] .Button {
     @apply bg-primary px-6 py-3 font-semibold text-white transition-all rounded-lg hover:bg-primary/90 hover:text-white;
   }
+   .Button {
+    @apply transition-all duration-200 bg-primary px-6 py-3 font-semibold text-white transition-all rounded-lg hover:bg-primary/90 hover:text-white;
+  }
   [data-theme="dark"] .Select {
     @apply bg-gray-800 border-none ;
   }
   [data-theme="light"] .Select {
     @apply bg-gray-200 border-none ;
+  }
+  .Select {
+    @apply transition-all duration-200 bg-gray-200 border-none ;
   }
   [data-theme="dark"] .contact {
     @apply bg-gray-800 text-white;
@@ -20,17 +26,41 @@
   [data-theme="light"] .contact {
     @apply bg-gray-400 text-white;
   }
+.contact {
+    @apply transition-all duration-200 bg-gray-400 text-white;
+  }
   [data-theme="dark"] .card {
     @apply bg-gray-800 ring-1 ring-gray-600;
   }
   [data-theme="light"] .card {
     @apply bg-gray-100 ring-1 ring-gray-300;
   }
+   .card {
+    @apply transition-all duration-200 bg-gray-100 ring-1 ring-gray-300;
+  }
   [data-theme="dark"] .gray-text {
     @apply text-gray-400;
   }
   [data-theme="light"] .gray-text {
     @apply text-gray-500;
+  }
+  .gray-text {
+    @apply transition-all duration-200 text-gray-500;
+  }
+  [data-theme="dark"] .sidebar {
+    @apply bg-gray-800;
+  }
+  [data-theme="light"] .sidebar {
+    @apply bg-gray-200;
+  }
+  .sidebar {
+    @apply transition-all duration-200 bg-gray-200;
+  }
+  html {
+    @apply transition-all duration-200 ;
+  }
+  body {
+    @apply transition-all duration-200 ;
   }
 }
 
@@ -87,6 +117,7 @@ html {
 * {
   margin: 0;
   padding: 0;
+  transition: all 0.3s 0;
   box-sizing: border-box;
 }
 
@@ -226,7 +257,7 @@ html {
 
 .toggle-label svg.sun {
   left: 7px; /* Adjust the positioning as needed */
-  fill: orange;
+  fill: black;
   transition: 0.3s;
 }
 
