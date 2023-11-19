@@ -194,7 +194,7 @@ function Products() {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
+        <div className="grid gap-2 grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
           {products.map((product) => (
             <Link
               href={`/product/${product._id}`}
