@@ -140,7 +140,7 @@ function Products() {
             Explore Now
           </button>
         </div>
-        <div className="flex flex-row flex-wrap gap-2 md:flex-row items-center mb-5 justify-center ">
+        <div className="flex flex-col gap-2 md:flex-row items-center mb-5 justify-center ">
           {/* Use FilterList for Categories */}
           <div className="md:flex justify-center">
             <div className="grid grid-cols-2 gap-2">
@@ -204,7 +204,7 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
   label,
 }) => {
   return (
-    <div className="relative pr-4  w-[150px] text-sm md:w-[200px] rounded-md">
+    <div className="relative pr-4 w-[150px] text-sm md:w-[200px] rounded-md">
       <Listbox value={selectedValue} onChange={(value) => onChange(value)}>
         <div className="relative">
           <Listbox.Button className="w-full text-xs md:text-base outline-none px-4 py-2 border appearance-none rounded">

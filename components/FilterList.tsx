@@ -17,7 +17,7 @@ function FilterList<T extends { _id: string; name: string }>({
   label,
 }: FilterListProps<T>) {
   return (
-    <div className="relative md:w-[200px] rounded-md">
+    <div className="relative w-[150px] text-sm md:w-[200px] rounded-md">
       <Listbox value={selectedValue} onChange={onChange}>
         <div className="relative w-full">
           <Listbox.Button className="w-full text-xs md:text-base px-4 py-2 border rounded">
