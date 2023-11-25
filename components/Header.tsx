@@ -59,8 +59,18 @@ function Header({}: Props) {
               hidden: { opacity: 0, x: -200 },
             }}
             transition={{ duration: 0.5, delay: 1 }}
-            className="cursor-pointer text-3xl font-extrabold">
-            <div>XOCO</div>
+            className="cursor-pointer text-3xl font-extrabold ">
+            <Link className="flex items-center" href="/">
+              <div>
+                <Image
+                  src="/images/logo.png"
+                  alt="logo"
+                  width={70}
+                  height={50}
+                />
+              </div>
+              <div className="md:block hidden">XOCO</div>
+            </Link>
           </motion.div>
 
           {/* NAVIGATION */}
