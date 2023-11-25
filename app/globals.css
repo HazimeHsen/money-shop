@@ -266,3 +266,17 @@ html {
   fill: white;
   transition: 0.3s;
 }
+
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.upDownAnimation {
+  animation: upDown 5s infinite;
+  animation-timing-function: ease-in-out;
+}

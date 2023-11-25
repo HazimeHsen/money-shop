@@ -18,10 +18,10 @@ export default function Slider({ images }: { images: Images[] }) {
         pagination={true}
         modules={[Pagination]}
         slidesPerView={1}
-        className="mySwiper w-full">
+        className="mySwiper ">
         {images.map((image, i) => (
-          <SwiperSlide className="w-full" key={i}>
-            <Image src={image.url} alt="" width={150} height={150} />
+          <SwiperSlide className="!h-[500px]" key={i}>
+            <Image src={image.url} alt="" fill />
           </SwiperSlide>
         ))}
       </Swiper>

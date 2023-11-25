@@ -77,7 +77,7 @@ const Page = ({ params }: { params: Params }) => {
             }}
             transition={{ duration: 0.5 }}>
             <div className="flex md:flex-row flex-col h-full gap-5">
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 object-contain">
                 <Slider images={product.image} />
               </div>
 

@@ -73,7 +73,7 @@ function Hero({}: Props) {
             transition={{ duration: 0.5 }}>
             <Image
               src="/images/hero.png"
-              className="md:w-[300px] md:h-[300px] w-[140px] h-[140px] mx-auto md:mx-0"
+              className="md:w-[300px] md:h-[300px] w-[140px] h-[140px] mx-auto md:mx-0 upDownAnimation"
               alt=""
               width={300}
               height={300}
