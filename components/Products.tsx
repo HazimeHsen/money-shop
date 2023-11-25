@@ -1,10 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { Fragment, useState, useEffect } from "react";
+import { Listbox, Transition } from "@headlessui/react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
-import { SearchIcon, FilterIcon } from "@/icons";
-import { ProductCard } from "@/components"; // Import your Modal component
+import { SearchIcon } from "@/icons";
+import { ProductCard } from "@/components";
+import Link from "next/link";
 import {
   getCategories,
   getCountry,
@@ -14,10 +16,7 @@ import { Products } from "@/types/Products";
 import { Categories } from "@/types/Categories";
 import { Countries } from "@/types/Countries";
 import Modal from "./Modal";
-import Slider from "./ImageSlider";
-import { PortableText } from "@portabletext/react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import Link from "next/link";
+import FilterList from "./FilterList";
 
 function Products() {
   const [categories, setCategories] = useState<Categories[]>([]);
@@ -33,11 +32,15 @@ function Products() {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Products | null>(null);
+  const filterOptions: { value: string; label: string }[] = [
+    { value: "priceup", label: "Price ↑" },
+    { value: "pricedown", label: "Price ↓" },
+    { value: "az", label: "A-Z" },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
       const data: Products[] = await getProducts();
-      console.log(data);
       const categories: Categories[] = await getCategories();
       const countries: Countries[] = await getCountry();
       setProducts(data);
@@ -92,20 +95,14 @@ function Products() {
   };
 
   const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true, // Only trigger the animation once
-    threshold: 0.3, // Percentage of the element in view
-  });
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
+    controls.start("visible");
+  }, [controls]);
+
   return (
-    <div id="products" className="container min-h-screen px-4 py-5 mx-auto ">
+    <div id="products" className="container min-h-screen px-4 py-5 mx-auto">
       <motion.div
-        ref={ref}
         initial="hidden"
         animate={controls}
         variants={{
@@ -144,81 +141,34 @@ function Products() {
           </button>
         </div>
         <div className="flex flex-row flex-wrap gap-2 md:flex-row items-center mb-5 justify-center ">
-          <div className="relative pr-4 md:w-[200px] Select w-[150px] Select rounded-md">
-            <select
-              value={selectedCategory?._id || ""}
-              onChange={(e) =>
-                setSelectedCategory(
-                  categories.find((cat) => cat._id === e.target.value) || null
-                )
-              }
-              className="w-full Select text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
-              <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
-                Select Category
-              </option>
-              {categories.map((category) => (
-                <option
-                  className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4"
-                  key={category._id}
-                  value={category._id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-            <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
-              <FaChevronUp size={12} className="text-gray-600" />
-              <FaChevronDown size={12} className="text-gray-600" />
+          {/* Use FilterList for Categories */}
+          <div className="md:flex justify-center">
+            <div className="grid grid-cols-2 gap-2">
+              <FilterList
+                selectedValue={selectedCategory}
+                options={categories}
+                onChange={setSelectedCategory}
+                label="Select Category"
+              />
+              {/* Use FilterList for Countries */}
+              <FilterList
+                selectedValue={selectedCountry}
+                options={countries}
+                onChange={setSelectedCountry}
+                label="Select Country"
+              />
             </div>
           </div>
-          <div className="relative pr-4 md:w-[200px] Select w-[150px] Select rounded-md">
-            <select
-              value={selectedCountry?._id || ""}
-              onChange={(e) =>
-                setSelectedCountry(
-                  countries.find((country) => country._id === e.target.value) ||
-                    null
-                )
-              }
-              className="w-full Select text-sm md:text-base outline-none md:px-4 px-2 py-2 border appearance-none rounded">
-              <option className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4">
-                Select Country
-              </option>
-              {countries.map((country) => (
-                <option
-                  className="hover:!bg-primary hover:!text-white !text-lg !py-2 !px-4"
-                  key={country._id}
-                  value={country._id}>
-                  {country.name}
-                </option>
-              ))}
-            </select>
-            <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
-              <FaChevronUp size={12} className="text-gray-600" />
-              <FaChevronDown size={12} className="text-gray-600" />
-            </div>
-          </div>
-          <div className="relative pr-4 md:w-[200px] Select  Select rounded-md ">
-            <select
-              onChange={(e) => setSelectedFilter(e.target.value)}
-              className="Select w-full text-sm md:text-base outline-none md:px-4 px-2 py-2 border rounded appearance-none">
-              <option value="" className="font-sans">
-                Filters
-              </option>
-              <option value="priceup" className="font-sans">
-                Price ↑
-              </option>
-              <option value="pricedown" className="font-sans">
-                Price ↓
-              </option>
-              <option value="az" className="font-sans">
-                A-Z
-              </option>
-            </select>
-            <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
-              <FaChevronUp size={12} className="text-gray-600" />
-              <FaChevronDown size={12} className="text-gray-600" />
-            </div>
-          </div>
+          <FilterSelect
+            selectedValue={selectedFilter}
+            options={[
+              { value: "priceup", label: "Price ↑" },
+              { value: "pricedown", label: "Price ↓" },
+              { value: "az", label: "A-Z" },
+            ]}
+            onChange={(value) => setSelectedFilter(value)}
+            label="Filters"
+          />
         </div>
       </motion.div>
       <div className="flex justify-center">
@@ -234,10 +184,75 @@ function Products() {
           ))}
         </div>
       </div>
-
-      {/* Modal component */}
     </div>
   );
 }
 
 export default Products;
+
+interface FilterSelectProps {
+  selectedValue: string;
+  options: { value: string; label: string }[];
+  onChange: (value: string) => void;
+  label: string;
+}
+
+const FilterSelect: React.FC<FilterSelectProps> = ({
+  selectedValue,
+  options,
+  onChange,
+  label,
+}) => {
+  return (
+    <div className="relative pr-4  w-[150px] text-sm md:w-[200px] rounded-md">
+      <Listbox value={selectedValue} onChange={(value) => onChange(value)}>
+        <div className="relative">
+          <Listbox.Button className="w-full text-xs md:text-base outline-none px-4 py-2 border appearance-none rounded">
+            <span className="mr-4">
+              {selectedValue
+                ? options.find((option) => option.value === selectedValue)
+                    ?.label
+                : label}
+            </span>
+            <span className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
+              <FaChevronUp size={12} className="text-gray-600" />
+              <FaChevronDown size={12} className="text-gray-600" />
+            </span>
+          </Listbox.Button>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0">
+            <Listbox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+              {options.map((option) => (
+                <Listbox.Option
+                  key={option.value}
+                  value={option.value}
+                  className={({ active, selected }) =>
+                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                      active || selected
+                        ? "bg-green-300 text-green-900"
+                        : "text-gray-900"
+                    }`
+                  }>
+                  {({ selected }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}>
+                        {option.label}
+                      </span>
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
+    </div>
+  );
+};
+
