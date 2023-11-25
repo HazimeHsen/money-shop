@@ -40,14 +40,14 @@ function ProductCard({ product }: Props) {
         hidden: { opacity: 0, y: 50 },
       }}
       transition={{ duration: 0.5 }}
-      className="h-full overflow-hidden hover:scale-105 cursor-pointer transition-all duration-200">
-      <div className="max-h-[80px] md:max-h-[100px] !w-full !h-full max-w-[140px] bg-gray-200">
+      className="h-full hover:scale-105 cursor-pointer transition-all duration-200">
+      <div className="max-h-[80px] md:max-h-[100px] !w-full !h-full max-w-[140px] bg-gray-200 rounded-lg">
         <Image
           src={product.image[0].url}
           alt={product.name}
           width={150}
           height={150}
-          className="object-cover max-h-[80px] md:max-h-[100px] !w-full !h-full max-w-[140px] "
+          className="object-cover max-h-[80px] md:max-h-[100px] !w-full rounded-lg !h-full max-w-[140px] "
         />
       </div>
       <div className="flex flex-col text-xs px-2 py-1">
@@ -61,7 +61,7 @@ function ProductCard({ product }: Props) {
         <div className="text-xs text-gray-500">{product.country.name}</div>
         <button
           onClick={handleAddToCart}
-          className="px-4 mt-3 w-full py-2 bg-transparent ring-2 text-primary ring-primary rounded-full hover:bg-primary/30">
+          className="px-4 mt-2 w-full py-2 bg-transparent ring-2 text-primary ring-primary rounded-full hover:bg-primary/30">
           Add to Cart
         </button>
       </div>

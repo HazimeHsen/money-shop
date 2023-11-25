@@ -1,5 +1,5 @@
 // FilterList.tsx
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
@@ -16,14 +16,18 @@ function FilterList<T extends { _id: string; name: string }>({
   onChange,
   label,
 }: FilterListProps<T>) {
+  const [newSelected, setNewSelected] = useState<string | undefined>("");
   return (
     <div className="relative w-[150px] text-sm md:w-[200px] rounded-md">
-      <Listbox value={selectedValue} onChange={onChange}>
+      <Listbox
+        value={selectedValue}
+        onChange={(value) => {
+          onChange(value);
+          setNewSelected(value?.name);
+        }}>
         <div className="relative w-full">
           <Listbox.Button className="w-full text-xs md:text-base px-4 py-2 border rounded">
-            <span className="mr-4">
-              {selectedValue ? selectedValue.name : label}
-            </span>
+            <span className="mr-4">{newSelected ? newSelected : label}</span>
             <span className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
               <FaChevronUp size={12} className="text-gray-600" />
               <FaChevronDown size={12} className="text-gray-600" />
@@ -41,20 +45,18 @@ function FilterList<T extends { _id: string; name: string }>({
                   value={option}
                   className={({ active, selected }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active || selected
+                      active || newSelected === option.name
                         ? "bg-green-300 text-green-900"
                         : "text-gray-900"
                     }`
                   }>
                   {({ selected }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}>
-                        {option.name}
-                      </span>
-                    </>
+                    <span
+                      className={`block truncate ${
+                        selected ? "font-medium" : "font-normal"
+                      }`}>
+                      {option.name}
+                    </span>
                   )}
                 </Listbox.Option>
               ))}
@@ -65,5 +67,6 @@ function FilterList<T extends { _id: string; name: string }>({
     </div>
   );
 }
+  
 
 export default FilterList;

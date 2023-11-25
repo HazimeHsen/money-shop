@@ -30,13 +30,12 @@ function Products() {
   const [selectedCountry, setSelectedCountry] = useState<Countries | null>(
     null
   );
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Products | null>(null);
-  const filterOptions: { value: string; label: string }[] = [
-    { value: "priceup", label: "Price ↑" },
-    { value: "pricedown", label: "Price ↓" },
-    { value: "az", label: "A-Z" },
-  ];
+  const resetFilters = () => {
+    setSelectedCategory(null);
+    setSelectedFilter("");
+    setSelectedCountry(null);
+    setProducts(unFilteredProducts);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,11 +88,6 @@ function Products() {
     else setProducts(filteredProducts);
   };
 
-  const handleCardClick = (product: Products) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
-
   const controls = useAnimation();
 
   useEffect(() => {
@@ -143,7 +137,7 @@ function Products() {
         <div className="flex flex-col gap-2 md:flex-row items-center mb-5 justify-center ">
           {/* Use FilterList for Categories */}
           <div className="md:flex justify-center">
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
               <FilterList
                 selectedValue={selectedCategory}
                 options={categories}
@@ -157,18 +151,24 @@ function Products() {
                 onChange={setSelectedCountry}
                 label="Select Country"
               />
+              <FilterSelect
+                selectedValue={selectedFilter}
+                options={[
+                  { value: "priceup", label: "Price ↑" },
+                  { value: "pricedown", label: "Price ↓" },
+                  { value: "az", label: "A-Z" },
+                ]}
+                onChange={(value) => setSelectedFilter(value)}
+                label="Filters"
+              />
+              <button
+                onClick={resetFilters}
+                className="bg-transparent ring-2 text-primary ring-primary hover:bg-primary/30 w-[150px] text-sm md:w-[200px] rounded-md">
+                {" "}
+                Reset Filters
+              </button>
             </div>
           </div>
-          <FilterSelect
-            selectedValue={selectedFilter}
-            options={[
-              { value: "priceup", label: "Price ↑" },
-              { value: "pricedown", label: "Price ↓" },
-              { value: "az", label: "A-Z" },
-            ]}
-            onChange={(value) => setSelectedFilter(value)}
-            label="Filters"
-          />
         </div>
       </motion.div>
       <div className="flex justify-center">
@@ -177,8 +177,7 @@ function Products() {
             <Link
               href={`/product/${product._id}`}
               className="h-full"
-              key={product._id}
-              onClick={() => handleCardClick(product)}>
+              key={product._id}>
               <ProductCard product={product} />
             </Link>
           ))}
@@ -204,7 +203,7 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
   label,
 }) => {
   return (
-    <div className="relative pr-4 w-[150px] text-sm md:w-[200px] rounded-md">
+    <div className="relative w-[150px] text-sm md:w-[200px] rounded-md">
       <Listbox value={selectedValue} onChange={(value) => onChange(value)}>
         <div className="relative">
           <Listbox.Button className="w-full text-xs md:text-base outline-none px-4 py-2 border appearance-none rounded">
