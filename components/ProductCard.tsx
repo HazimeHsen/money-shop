@@ -33,13 +33,13 @@ function ProductCard({ product }: Props) {
       }}
       transition={{ duration: 0.5 }}
       className="h-full overflow-hidden card hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
-      <div className="max-w-[140px] w-full">
+      <div className="max-h-[80px] md:max-h-[100px] !w-full !h-full max-w-[140px] ">
         <Image
           src={product.image[0].url}
           alt={product.name}
           width={150}
           height={150}
-          className="object-cover max-h-[80px] md:max-h-[100px] !w-full h-full max-w-[140px] "
+          className="object-cover max-h-[80px] md:max-h-[100px] !w-full !h-full max-w-[140px] "
         />
       </div>
       <div className="flex flex-col text-xs px-2 py-1">
