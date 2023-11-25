@@ -32,23 +32,23 @@ function ProductCard({ product }: Props) {
         hidden: { opacity: 0, y: 50 },
       }}
       transition={{ duration: 0.5 }}
-      className="overflow-hidden card hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
+      className="h-full overflow-hidden card hover:scale-105 cursor-pointer transition-all duration-200 rounded-lg">
       <div className="max-w-[140px] w-full">
         <Image
           src={product.image[0].url}
           alt={product.name}
           width={150}
           height={150}
-          className="object-cover max-h-[100px] !w-full h-full max-w-[140px] "
+          className="object-cover max-h-[80px] md:max-h-[100px] !w-full h-full max-w-[140px] "
         />
       </div>
       <div className="flex flex-col text-xs px-2 py-1">
         <div className="flex items-center justify-between">
           <h1 className="font-semibold">{product.name}</h1>
-          <div className="text-primary font-bold rounded">
-            <span className="!text-sm">$</span>
-            {product.price}
-          </div>
+        </div>
+        <div className="text-primary font-bold rounded">
+          <span className="!text-sm">$</span>
+          {product.price}
         </div>
         <div className="text-xs text-gray-600">{product.country.name}</div>
       </div>
