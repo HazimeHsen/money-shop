@@ -32,12 +32,12 @@ function Hero({}: Props) {
             <h1
               className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-3xl font-extrabold md:text-5xl ${arimo.className}`}>
               The Best Place To Find And Buy Amazing{" "}
-              <span className="text-primary">Products</span>
+              <span className="text-primary">Bank Notes</span>
             </h1>
             <h3
               className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold gray-text ${arimo.className}`}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
-              nisi, at sed integer nec, velit vulptate est at.
+              Heritage Kings is specialized in delivering 
+              exceptional user-experience with the notes that you cannot find anywhere else.
             </h3>
             <button className="Button">Explore Now</button>
             <div className="md:block hidden">
