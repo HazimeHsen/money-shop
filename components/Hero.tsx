@@ -36,8 +36,8 @@ function Hero({}: Props) {
             </h1>
             <h3
               className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold gray-text ${arimo.className}`}>
-              Heritage Kings is specialized in delivering 
-              exceptional user-experience with the notes that you cannot find anywhere else.
+              Heritage Kings is specialized in delivering exceptional
+              user-experience with the notes that you cannot find anywhere else.
             </h3>
             <button className="Button">Explore Now</button>
             <div className="md:block hidden">
@@ -55,7 +55,12 @@ function Hero({}: Props) {
                 </div>
                 <div className="md:w-3/4 w-full ">
                   <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
-                  We're growing our collection and creating a top-notch online paper money gallery at HeritageKings.com. Looking for a specific banknote? Use our search to find details like its value and description. Whether you're expanding your collection or starting a new one, trust HeritageKings.com for buying paper money online.
+                    We&apos;re growing our collection and creating a top-notch
+                    online paper money gallery at HeritageKings.com. Looking for
+                    a specific banknote? Use our search to find details like its
+                    value and description. Whether you&apos;re expanding your
+                    collection or starting a new one, trust HeritageKings.com
+                    for buying paper money online.
                   </ul>
                 </div>
               </div>
@@ -91,7 +96,12 @@ function Hero({}: Props) {
                 </div>
                 <div className="md:w-3/4 w-full ">
                   <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
-                  We're growing our collection and creating a top-notch online paper money gallery at HeritageKings.com. Looking for a specific banknote? Use our search to find details like its value and description. Whether you're expanding your collection or starting a new one, trust HeritageKings.com for buying paper money online.
+                    We&apos;re growing our collection and creating a top-notch
+                    online paper money gallery at HeritageKings.com. Looking for
+                    a specific banknote? Use our search to find details like its
+                    value and description. Whether you&apos;re expanding your
+                    collection or starting a new one, trust HeritageKings.com
+                    for buying paper money online.
                   </ul>
                 </div>
               </div>
