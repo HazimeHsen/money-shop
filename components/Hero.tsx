@@ -18,8 +18,8 @@ function Hero({}: Props) {
   }, [controls]);
   return (
     <>
-      <div className="h-[95vh] md:pt-0 flex justify-center items-center ">
-        <div className="flex md:flex-row md:gap-0 gap-5 flex-col w-full items-center justify-evenly px-4 ">
+      <div className="rounded-xl flex justify-center items-center hero-bg mx-5 py-5 pt-10">
+        <div className="flex md:flex-row md:gap-0 gap-5 flex-col w-full items-center justify-evenly px-4 bg">
           <motion.div
             initial="hidden"
             animate={controls}
@@ -53,15 +53,15 @@ function Hero({}: Props) {
                     Why Us
                   </h2>
                 </div>
-                <div className="md:w-3/4 w-full ">
-                  <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
+                <div className="md:w-[90%] w-full ">
+                  <p className="font-semibold text-sm gray-text pl-8">
                     We&apos;re growing our collection and creating a top-notch
                     online paper money gallery at HeritageKings.com. Looking for
                     a specific banknote? Use our search to find details like its
                     value and description. Whether you&apos;re expanding your
                     collection or starting a new one, trust HeritageKings.com
                     for buying paper money online.
-                  </ul>
+                  </p>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ function Hero({}: Props) {
               height={300}
             />
             <div className="md:hidden block">
-              <div className="flex flex-col md:flex-row md:items-center mb-10">
+              <div className="flex flex-col md:flex-row md:items-center w-full mb-10">
                 <div className=" flex items-center ">
                   <Image
                     src="/images/money.gif"
@@ -94,15 +94,15 @@ function Hero({}: Props) {
                     Why Us
                   </h2>
                 </div>
-                <div className="md:w-3/4 w-full ">
-                  <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
+                <div className="w-full ">
+                  <p className="font-semibold text-sm w-full gray-text pl-8">
                     We&apos;re growing our collection and creating a top-notch
                     online paper money gallery at HeritageKings.com. Looking for
                     a specific banknote? Use our search to find details like its
                     value and description. Whether you&apos;re expanding your
                     collection or starting a new one, trust HeritageKings.com
                     for buying paper money online.
-                  </ul>
+                  </p>
                 </div>
               </div>
             </div>

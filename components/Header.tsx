@@ -48,8 +48,8 @@ function Header({}: Props) {
 
   return (
     <>
-      <div className={`pt-5 md:px-10 px-4 z-20`}>
-        <div className="container flex items-center justify-between px-5 mx-auto sm:px-0">
+      <div className={`pt-5 md:px-10 px-4 mb-5 z-20`}>
+        <div className="flex w-full items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
           <motion.div
             initial="hidden"

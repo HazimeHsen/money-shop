@@ -56,6 +56,15 @@
   .sidebar {
     @apply transition-all duration-200 bg-gray-200;
   }
+  [data-theme="dark"] .hero-bg {
+    @apply bg-gray-700;
+  }
+  [data-theme="light"] .hero-bg {
+    @apply bg-orange-100;
+  }
+  .hero-bg {
+    @apply bg-orange-100;
+  }
   html {
     @apply transition-all duration-200 ;
   }
