@@ -32,12 +32,12 @@ function Hero({}: Props) {
             <h1
               className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-3xl font-extrabold md:text-5xl ${arimo.className}`}>
               The Best Place To Find And Buy Amazing{" "}
-              <span className="text-primary">Products</span>
+              <span className="text-primary">Bank Notes</span>
             </h1>
             <h3
               className={`max-w-md mx-auto md:mx-0 md:max-w-lg text-sm md:text-base font-semibold gray-text ${arimo.className}`}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
-              nisi, at sed integer nec, velit vulptate est at.
+              Heritage Kings is specialized in delivering 
+              exceptional user-experience with the notes that you cannot find anywhere else.
             </h3>
             <button className="Button">Explore Now</button>
             <div className="md:block hidden">
@@ -50,14 +50,12 @@ function Hero({}: Props) {
                     alt=""
                   />
                   <h2 className="font-bold text-xl underline justify-start text-primary mb-2">
-                    hello worlldddd:
+                    Why Us
                   </h2>
                 </div>
                 <div className="md:w-3/4 w-full ">
                   <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis non, delectus deleniti necessitatibus quia ratione
-                    veniam eos rem amet odio consequuntur minima.
+                  We're growing our collection and creating a top-notch online paper money gallery at HeritageKings.com. Looking for a specific banknote? Use our search to find details like its value and description. Whether you're expanding your collection or starting a new one, trust HeritageKings.com for buying paper money online.
                   </ul>
                 </div>
               </div>
@@ -88,14 +86,12 @@ function Hero({}: Props) {
                     alt=""
                   />
                   <h2 className="font-bold text-xl underline justify-start text-primary mb-2">
-                    hello worlldddd:
+                    Why Us
                   </h2>
                 </div>
                 <div className="md:w-3/4 w-full ">
                   <ul className="font-semibold max-w-sm text-sm gray-text pl-8">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis non, delectus deleniti necessitatibus quia ratione
-                    veniam eos rem amet odio consequuntur minima.
+                  We're growing our collection and creating a top-notch online paper money gallery at HeritageKings.com. Looking for a specific banknote? Use our search to find details like its value and description. Whether you're expanding your collection or starting a new one, trust HeritageKings.com for buying paper money online.
                   </ul>
                 </div>
               </div>

@@ -9,7 +9,7 @@ import DarkLightThemeProvider from "./ThemeProvider";
 const quicksand = Quicksand({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "XOCO",
+  title: "Heritage Kings",
   description: "Ecommer template 3",
 };
 
