@@ -7,7 +7,20 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { arimo } from "@/app/font";
+import { BsTiktok, BsFacebook } from "react-icons/bs";
 
+const Socials = [
+  {
+    title: "Facebook ",
+    icon: BsFacebook,
+    link: "#",
+  },
+  {
+    title: "Instagram",
+    icon: BsTiktok,
+    link: "#",
+  },
+];
 const ContactUs = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -42,8 +55,18 @@ const ContactUs = () => {
             transition={{ duration: 0.5 }}
             className="block rounded-lg contact  px-6 py-12 shadow-lg md:py-16 md:px-12 ">
             <div
-              className={`mb-12 text-3xl font-extrabold text-white text-center ${arimo.className}`}>
+              className={`mb-10 text-3xl font-extrabold text-white text-center ${arimo.className}`}>
               Contact Us
+              <div className="flex mt-2 gap-2 justify-center">
+                {Socials.map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.link}
+                    className="text-gray-500 hover:text-primary ">
+                    <social.icon size={20} />
+                  </a>
+                ))}
+              </div>
             </div>
             <div className="mx-auto max-w-[700px]">
               <form>
