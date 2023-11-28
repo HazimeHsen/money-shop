@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between ">
           <span className="text-sm text-gray-500 sm:text-center ">
-            © 2023 XOCO . All Rights Reserved.
+            © 2023 Heritage Kings. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
             {Socials.map((social, i) => (

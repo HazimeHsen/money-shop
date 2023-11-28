@@ -69,7 +69,7 @@ function Header({}: Props) {
                   height={50}
                 />
               </div>
-              <div className="md:block hidden">XOCO</div>
+              <div className="md:block hidden">Heritage Kings</div>
             </Link>
           </motion.div>
 
