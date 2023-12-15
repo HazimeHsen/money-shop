@@ -61,7 +61,7 @@ function ProductCard({ product }: Props) {
         <div className="text-xs text-gray-500">{product.country.name}</div>
         <button
           onClick={handleAddToCart}
-          className="px-4 mt-2 w-full py-2 bg-transparent ring-2 text-primary ring-primary rounded-full hover:bg-primary/30">
+          className="px-1 mt-2 w-full py-1 bg-transparent ring-2 text-primary ring-primary rounded-full hover:bg-primary/30">
           Add to Cart
         </button>
       </div>
