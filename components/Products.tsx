@@ -30,6 +30,9 @@ function Products() {
   const [selectedCountry, setSelectedCountry] = useState<Countries | null>(
     null
   );
+  const [filteredProducts, setFilteredProducts] =
+    useState<{ category: string; products: Products[] }[]>();
+
   const resetFilters = () => {
     setSelectedCategory(null);
     setSelectedFilter("");
@@ -72,10 +75,19 @@ function Products() {
       }
 
       setProducts(sortedProducts);
+
+      const productsByCategory = categories.map((category) => ({
+        category: category.name,
+        products: products.filter(
+          (product) => product.category?._id === category._id
+        ),
+      }));
+
+      setFilteredProducts(productsByCategory);
     };
 
     fetchData();
-  }, [selectedCategory, selectedCountry, selectedFilter]);
+  }, [products, selectedCategory, selectedCountry, selectedFilter]);
 
   const handleSearch = (e: any) => {
     const searchValue = e.target.value.toLowerCase();
@@ -172,31 +184,41 @@ function Products() {
         </div>
       </motion.div>
       <div className="flex justify-center">
-        <div className="grid gap-4 w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
-          {products.map((product) => (
-            <Link
-              href={`/product/${product._id}`}
-              className="h-full"
-              key={product._id}>
-              <ProductCard product={product} />
-            </Link>
-          ))}
-          {products.map((product) => (
-            <Link
-              href={`/product/${product._id}`}
-              className="h-full"
-              key={product._id}>
-              <ProductCard product={product} />
-            </Link>
-          ))}
-          {products.map((product) => (
-            <Link
-              href={`/product/${product._id}`}
-              className="h-full"
-              key={product._id}>
-              <ProductCard product={product} />
-            </Link>
-          ))}
+        <div className=" ">
+          {filteredProducts &&
+            filteredProducts?.map((filterProduct, i) => (
+              <div key={i}>
+                <h1 className="text-lg font-bold text-center md:text-start">
+                  {filterProduct.category}
+                </h1>
+                <div className="my-3 grid gap-4 w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
+                  {filterProduct.products.map((product) => (
+                    <Link
+                      href={`/product/${product._id}`}
+                      className="h-full"
+                      key={product._id}>
+                      <ProductCard product={product} />
+                    </Link>
+                  ))}
+                  {filterProduct.products.map((product) => (
+                    <Link
+                      href={`/product/${product._id}`}
+                      className="h-full"
+                      key={product._id}>
+                      <ProductCard product={product} />
+                    </Link>
+                  ))}
+                  {filterProduct.products.map((product) => (
+                    <Link
+                      href={`/product/${product._id}`}
+                      className="h-full"
+                      key={product._id}>
+                      <ProductCard product={product} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
