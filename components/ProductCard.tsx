@@ -36,10 +36,10 @@ function ProductCard({ product }: Props) {
       initial="hidden"
       animate={controls}
       variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: -50 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.1 }}
       className="h-full hover:scale-105 cursor-pointer transition-all p-3 duration-200">
       <div className="max-h-[80px] md:max-h-[100px] !w-full !h-full bg-gray-200 rounded-lg">
         <Image

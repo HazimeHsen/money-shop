@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
-import { BsTiktok, BsFacebook } from "react-icons/bs";
+import { BsTiktok, BsFacebook, BsInstagram } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
 
 const Socials = [
@@ -16,13 +16,13 @@ const Socials = [
   },
   {
     title: "Instagram",
-    icon: BsTiktok,
+    icon: BsInstagram,
     link: "#",
     subTitle: "lorem eifi ifjeijf ojrfojoe",
     info: "hello",
   },
   {
-    title: "Instagram",
+    title: "Email",
     icon: MdOutlineMail,
     link: "#",
     subTitle: "Our friendly team is here to help.",

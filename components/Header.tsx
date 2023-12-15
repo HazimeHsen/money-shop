@@ -11,6 +11,7 @@ import Animation from "@/app/Animation";
 
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
+import ClientOnly from "./ClientOnly";
 type Props = {};
 
 function Header({}: Props) {
@@ -48,7 +49,7 @@ function Header({}: Props) {
 
   return (
     <>
-      <div className={`pt-5 md:px-10 px-4 mb-5 z-20`}>
+      <div className={`pt-5 md:px-10 px-4 md:mb-5 z-20`}>
         <div className="flex w-full items-center justify-between px-5 mx-auto sm:px-0">
           {/* LOGO */}
           <motion.div
@@ -107,13 +108,15 @@ function Header({}: Props) {
               <Link href="/cart">
                 <FiShoppingCart size={25} />
               </Link>
-              <span>
-                {cartItems && cartItems?.length > 0 && (
-                  <span className="text-white bg-red-600 rounded-full w-4 h-4 absolute top-0 -right-2 flex items-center justify-center p-1 text-xs">
-                    {cartItems?.length}
-                  </span>
-                )}
-              </span>
+              <ClientOnly>
+                <span>
+                  {cartItems && cartItems?.length > 0 && (
+                    <span className="text-white bg-red-600 rounded-full w-4 h-4 absolute -top-1 -right-2 flex items-center justify-center p-1 text-xs">
+                      {cartItems?.length}
+                    </span>
+                  )}
+                </span>
+              </ClientOnly>
             </div>
 
             <ToggleTheme />

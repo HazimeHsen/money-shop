@@ -20,13 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <DarkLightThemeProvider>
+      <StoreProvider>
         <body className={quicksand.className}>
           <div>
-            <StoreProvider>{children}</StoreProvider>
+            <DarkLightThemeProvider>{children}</DarkLightThemeProvider>
           </div>
         </body>
-      </DarkLightThemeProvider>
+      </StoreProvider>
     </html>
   );
 }

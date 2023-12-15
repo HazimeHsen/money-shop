@@ -172,7 +172,23 @@ function Products() {
         </div>
       </motion.div>
       <div className="flex justify-center">
-        <div className="grid gap-4 w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
+        <div className="grid gap-4 w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
+          {products.map((product) => (
+            <Link
+              href={`/product/${product._id}`}
+              className="h-full"
+              key={product._id}>
+              <ProductCard product={product} />
+            </Link>
+          ))}
+          {products.map((product) => (
+            <Link
+              href={`/product/${product._id}`}
+              className="h-full"
+              key={product._id}>
+              <ProductCard product={product} />
+            </Link>
+          ))}
           {products.map((product) => (
             <Link
               href={`/product/${product._id}`}
