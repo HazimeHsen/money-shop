@@ -18,7 +18,7 @@ function FilterList<T extends { _id: string; name: string }>({
 }: FilterListProps<T>) {
   const [newSelected, setNewSelected] = useState<string | undefined>("");
   return (
-    <div className="relative w-[150px] text-sm md:w-[200px] rounded-md">
+    <div className="relative w-[150px] text-sm md:w-[200px] rounded-full">
       <Listbox
         value={selectedValue}
         onChange={(value) => {
@@ -26,7 +26,7 @@ function FilterList<T extends { _id: string; name: string }>({
           setNewSelected(value?.name);
         }}>
         <div className="relative w-full">
-          <Listbox.Button className="w-full text-xs md:text-base px-4 py-2 border rounded">
+          <Listbox.Button className="w-full text-xs md:text-base px-4 py-2 border rounded-full">
             <span className="mr-4">{newSelected ? newSelected : label}</span>
             <span className="absolute inset-y-0 right-0 flex flex-col justify-center items-center px-2 pointer-events-none">
               <FaChevronUp size={12} className="text-gray-600" />

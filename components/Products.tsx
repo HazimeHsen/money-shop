@@ -163,7 +163,7 @@ function Products() {
               />
               <button
                 onClick={resetFilters}
-                className="bg-transparent ring-2 text-primary ring-primary hover:bg-primary/30 w-[150px] text-sm md:w-[200px] rounded-md">
+                className="bg-transparent ring-2 text-primary ring-primary hover:bg-primary/30 w-[150px] text-sm md:w-[200px] rounded-full">
                 {" "}
                 Reset Filters
               </button>
@@ -219,10 +219,10 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
   label,
 }) => {
   return (
-    <div className="relative w-[150px] text-sm md:w-[200px] rounded-md">
+    <div className="relative w-[150px] text-sm md:w-[200px] rounded-full">
       <Listbox value={selectedValue} onChange={(value) => onChange(value)}>
         <div className="relative">
-          <Listbox.Button className="w-full text-xs md:text-base outline-none px-4 py-2 border appearance-none rounded">
+          <Listbox.Button className="w-full text-xs md:text-base outline-none px-4 py-2 border appearance-none rounded-full">
             <span className="mr-4">
               {selectedValue
                 ? options.find((option) => option.value === selectedValue)
